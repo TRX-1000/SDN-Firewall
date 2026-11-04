@@ -1,0 +1,21 @@
+{
+  "rules": [
+    {"id": "R1", "class": "ADMIN",   "action": "allow", "src": "10.0.0.1",    "dst": "10.0.0.100", "dst_port": 2222},
+    {"id": "R2", "class": "ADMIN",   "action": "deny",  "src": "any",         "dst": "10.0.0.100", "dst_port": 2222},
+    {"id": "R3", "class": "SERVICE", "action": "allow", "src": "10.0.0.0/24", "dst": "10.0.0.100", "dst_port": 8080},
+    {"id": "R4", "class": "TELNET",  "action": "deny",  "src": "any",         "dst": "any",        "dst_port": 23}
+  ],
+  "default_action": "allow",
+
+  "detection": {
+    "window_sec": 5,
+    "max_new_conns": 25,
+    "max_ports": 8,
+    "max_denied": 5
+  },
+
+  "block_seconds": 20,
+  "max_block_seconds": 160,
+
+  "logger": {"host": "127.0.0.1", "port": 9999}
+}

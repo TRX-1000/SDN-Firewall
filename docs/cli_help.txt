@@ -1,0 +1,13 @@
+
+=====================================================================
+ Mininet is ready.  Demo commands (full list with explanations: docs/DEMO.md)
+
+   h2 python3 app/client.py --count 5                     normal client
+   h2 python3 app/client.py --count 8 --parallel 4 --rate 1   4 clients at once
+   h1 python3 app/client.py --port 2222 --request STATS   admin port: h1 allowed
+   h2 python3 app/client.py --port 2222 --request STATS   admin port: h2 denied
+   h4 python3 traffic/attacker.py flood                   connection flood
+   h4 python3 traffic/attacker.py scan                    port scan
+   h2 python3 app/client.py --port 2222 --count 6 --rate 2 --timeout 1   denied 5x -> blocked
+   sh ovs-ofctl dump-flows s1                             rules in the switch
+=====================================================================
